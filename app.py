@@ -5,7 +5,7 @@ from werkzeug.serving import WSGIRequestHandler
 import numpy as np 
 import time 
 import os 
-os.environ['CUDA_VISIBLE_DEVICES']=-1
+os.environ["CUDA_VISIBLE_DEVICES"]="-1"
 import tensorflow as tf
 
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
