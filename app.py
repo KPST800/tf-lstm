@@ -13,7 +13,7 @@ MODEL_FILENAME = 'inference_model.pb'
 sess = tf.compat.v1.Session()
 print("loading graph")
 output_graph = os.path.join(CUR_DIR, MODEL_FILENAME)
-graph_def = tf.GraphDef()
+graph_def = tf.compat.v1.GraphDef()
 with tf.gfile.FastGFile(output_graph,'rb') as fp_pb:
     graph_def.ParseFromString(fp_pb.read())
 sess.graph.as_default()
