@@ -61,9 +61,6 @@ def inference_status():
     db_.close()
 
 
-@app.route('/')
-def index():
-    return Response('Test Page ! ')
 
 @app.route('/test', methods=['GET','POST'])
 def basic():
