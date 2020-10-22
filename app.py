@@ -4,7 +4,7 @@ from db_connector import DB_TEST
 from werkzeug.serving import WSGIRequestHandler
 import numpy as np 
 import time 
-import tensorflow.compat.v1 as tf
+import tensorflow as tf
 import os 
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 
