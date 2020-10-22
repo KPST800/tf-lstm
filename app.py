@@ -61,8 +61,11 @@ def inference_status():
     db_.close()
 
 
+@app.route('/test')
+def index():
+    return Response('Test Page ! ')
 
-@app.route("/", methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
 def basic():
     ip_address = request.remote_addr
     param1 = request.args.get('power', "-1")
