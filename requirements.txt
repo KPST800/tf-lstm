@@ -1,6 +1,6 @@
 pip==20.2.3
 flask
-tensorflow==1.15.0
+tensorflow-cpu==1.15.0
 setuptools>=36
 pymysql==0.9.3
 werkzeug==0.16.0
