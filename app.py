@@ -27,14 +27,14 @@ tf_output = sess.graph.get_tensor_by_name("output:0")
 
 
 app = Flask(__name__)
-db = DB_TEST('127.0.0.1', 'db_sensor_data', 'root', 'root')
+db = DB_TEST('192.168.0.197', 'db_sensor_data', 'root', 'root')
 print(db)
 
 len_seq = 10
 
 def inference_status():
     # status가 NULL인 (아직 상태가 추론되지 않은) 레코드를 모아서 추론 진행
-    db_ = DB_TEST('127.0.0.1', 'db_sensor_data', 'root', 'root')
+    db_ = DB_TEST('192.168.0.197', 'db_sensor_data', 'root', 'root')
     db_.execute('select * from tbl_sensor5 where status is null')
     result_noinfer = db_.fetchall()
     for i in range(len(result_noinfer)):
@@ -110,7 +110,7 @@ def basic():
 
 if __name__ == "__main__":
     WSGIRequestHandler.protocol_version = "HTTP/1.1"
-    app.run( host='0.0.0.0',threaded=True)
+    app.run( host='0.0.0.0',threaded=True, port=8080)
     
     
 # datetime_ = result_noinfer[i][7]
