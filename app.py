@@ -10,7 +10,7 @@ CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # initialize inference model
 MODEL_FILENAME = 'inference_model.pb'
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 print("loading graph")
 output_graph = os.path.join(CUR_DIR, MODEL_FILENAME)
 graph_def = tf.GraphDef()
