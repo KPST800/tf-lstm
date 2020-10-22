@@ -4,8 +4,10 @@ from db_connector import DB_TEST
 from werkzeug.serving import WSGIRequestHandler
 import numpy as np 
 import time 
-import tensorflow as tf
 import os 
+os.environ['CUDA_VISIBLE_DEVICES']=-1
+import tensorflow as tf
+
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # initialize inference model
