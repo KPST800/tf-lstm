@@ -4,16 +4,16 @@ from db_connector import DB_TEST
 from werkzeug.serving import WSGIRequestHandler
 import numpy as np 
 import time 
-import tensorflow.compat.v1 as tf
+import tensorflow as tf
 import os 
 CUR_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # initialize inference model
 MODEL_FILENAME = 'inference_model.pb'
-sess = tf.Session()
+sess = tf.compat.v1.Session()
 print("loading graph")
 output_graph = os.path.join(CUR_DIR, MODEL_FILENAME)
-graph_def = tf.GraphDef()
+graph_def = tf.compat.v1.GraphDef()
 with tf.gfile.FastGFile(output_graph,'rb') as fp_pb:
     graph_def.ParseFromString(fp_pb.read())
 sess.graph.as_default()
