@@ -45,7 +45,7 @@ def inference_status():
         query_ = 'select * from tbl_sensor5 where sensor_id=\"' + sensor_id_ + '\" and id <= ' + str(datum_id_) + ' order by id desc limit ' + str(len_seq) 
         db_.execute(query_)
         records = db_.fetchall()
-        print([datum_id_, sensor_id_, len(records)])
+        # print([datum_id_, sensor_id_, len(records)])
         if len(records) == len_seq:
             data = []
             for idx_record in reversed(range(len_seq)):
@@ -56,6 +56,7 @@ def inference_status():
             np_output = sess.run(tf_output, feed_dict = {tf_input: np_input})
             # 선택된 status가 NULL인 record의 status를 update해준다.
             query__ = 'update tbl_sensor5 set status=' + str(int(3*(1-float(np_output)))) + ' where id=' + str(datum_id_)
+            print(float(np_output))
             db_.execute(query__)
             db_.commit()
     db_.close()
@@ -70,11 +71,11 @@ def basic():
     param3 = request.args.get('gyro', "-1")
     
 
-    print(param1)
+    # print(param1)
     # print(param1.split(','))
-    print(param2)
+    # print(param2)
     # print(param2.split(','))
-    print(param3)
+    # print(param3)
     # print(param3.split(','))
     # return_str = 'power: '+param1+', gyro: '+param2+', audio: '+param3
     # print(return_str)
@@ -96,7 +97,7 @@ def basic():
         db.commit()
     tic = time.time()
     inference_status()
-    print(time.time()-tic)
+    # print(time.time()-tic)
 
     # select data to put in network
     # _query = 'select * from tbl_sensor5 where status is null'
