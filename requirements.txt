@@ -1,7 +1,7 @@
 pip==20.2.3
 flask
-pymysql
-werkzeug
-numpy
 tensorflow==1.15.0
 setuptools>=36
+pymysql==0.9.3
+werkzeug==0.16.0
+numpy==1.17.3
